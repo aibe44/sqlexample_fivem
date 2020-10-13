@@ -31,7 +31,7 @@ namespace EGRP
             string lic = await Database.ExecuteQuery($"SELECT * FROM egrp.whitelist WHERE license = '{licenseIdentifier}'");
             if (lic != licenseIdentifier && !string.IsNullOrEmpty(licenseIdentifier))
             {
-                deferrals.update($"User not whitelisted.");
+                deferrals.done($"User not whitelisted.");
             }
             else {
                 deferrals.update($"User whitelisted.");
